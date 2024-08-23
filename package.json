@@ -6,6 +6,9 @@
   "description": "",
   "scripts": {
     "build": "bun run build.mjs",
+    "dev": "bun --watch src/index.ts",
+    "test": "bun test",
+    "test:watch": "bun --watch test",
     "prepublishOnly": "bun run build"
   },
   "files": [
@@ -23,8 +26,13 @@
   "bugs": "https://github.com/wobsoriano/pkg-name/issues",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "devDependencies": {
-    "bun-plugin-dts": "^0.2.1",
-    "@types/bun": "^1.0.0",
-    "typescript": "^5.2.2"
+    "@types/bun": "^1.1.6",
+    "bun-plugin-dts": "^0.2.3",
+    "bun-types": "^1.1.25",
+    "msw": "^2.3.5",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "openapi-fetch": "^0.11.1"
   }
 }
