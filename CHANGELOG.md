@@ -1,5 +1,11 @@
 # js-sdk
 
+## 0.0.4
+
+### Patch Changes
+
+- cbcc44e: changeset
+
 ## 0.0.3
 
 ### Patch Changes
