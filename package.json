@@ -44,6 +44,7 @@
   "author": "nichenqin <nichenqin@hotmail.com>",
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
+    "@changesets/cli": "^2.27.7",
     "@types/bun": "^1.1.6",
     "bun-plugin-dts": "^0.2.3",
     "bun-types": "^1.1.25",
@@ -53,8 +54,5 @@
   },
   "peerDependencies": {
     "openapi-fetch": "^0.11.1"
-  },
-  "dependencies": {
-    "@changesets/cli": "^2.27.7"
   }
 }
