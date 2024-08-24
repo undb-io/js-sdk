@@ -1,0 +1,5 @@
+---
+"js-sdk": patch
+---
+
+changeset
