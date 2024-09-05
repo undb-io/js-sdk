@@ -16,7 +16,7 @@ export class AuthService {
     this.client = client
   }
 
-  async loginWithEmail(email: string, password: string): Promise<AuthResponse> {
+  async loginWithEmailPassword(email: string, password: string): Promise<AuthResponse> {
     if (this.token) {
       throw new Error('Already authenticated with API token.')
     }

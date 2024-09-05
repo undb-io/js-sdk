@@ -6,7 +6,7 @@ import { UndbSDK } from '../src/Sdk'
 import type { components, paths } from './templates'
 
 const SECRET = 'secret'
-const BASE_URL = 'http://localhost:3721/api'
+const BASE_URL = 'http://localhost:3721/openapi'
 
 describe('template', () => {
   let sdk: UndbSDK
@@ -34,7 +34,7 @@ describe('template', () => {
       const request = mockFetch.mock.calls[0][0]
 
       expect(request).toHaveProperty('url')
-      expect(request.url).toBe('http://localhost:3721/api/bases/templates/tables/templates/records')
+      expect(request.url).toBe('http://localhost:3721/openapi/bases/templates/tables/templates/records')
       expect(request).toHaveProperty('headers')
       expect(request.headers).toBeInstanceOf(Headers)
       expect((request.headers as Headers).get('x-undb-api-token')).toBe(SECRET)
@@ -47,7 +47,7 @@ describe('template', () => {
       })
 
       const request = mockFetch.mock.calls[0][0]
-      expect(request.url).toBe(`http://localhost:3721/api/bases/templates/tables/templates/records/${recordId}`)
+      expect(request.url).toBe(`http://localhost:3721/openapi/bases/templates/tables/templates/records/${recordId}`)
     })
   })
 
