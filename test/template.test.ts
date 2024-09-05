@@ -1,14 +1,15 @@
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, jest, test } from 'bun:test'
 import { http, HttpResponse } from 'msw'
 import { setupServer } from 'msw/node'
-import { Client, OpenApiClient } from '../src/Client'
+import type { OpenApiClient } from '../src'
+import { UndbSDK } from '../src/Sdk'
 import type { components, paths } from './templates'
 
 const SECRET = 'secret'
 const BASE_URL = 'http://localhost:3721/api'
 
 describe('template', () => {
-  let client: Client
+  let sdk: UndbSDK
   let openapi: OpenApiClient<paths>
 
   let mockFetch: jest.Mock
@@ -19,9 +20,9 @@ describe('template', () => {
         headers: new Headers(),
         text: async () => '',
       }))
-      client = new Client({ baseUrl: BASE_URL, fetch: mockFetch })
-      client.setSecret(SECRET)
-      openapi = client.openapi<paths>()
+      sdk = new UndbSDK({ baseURL: BASE_URL, fetch: mockFetch })
+      sdk.auth.setToken(SECRET)
+      openapi = sdk.getOpenapiClient<paths>()
     })
 
     afterEach(() => {
@@ -64,8 +65,9 @@ describe('template', () => {
     beforeEach(() => {
       // NOTE: server.listen must be called before `createClient` is used to ensure
       // the msw can inject its version of `fetch` to intercept the requests.
-      client = new Client({ baseUrl: BASE_URL })
-      openapi = client.openapi<paths>()
+      sdk = new UndbSDK({ baseURL: BASE_URL })
+      sdk.auth.setToken(SECRET)
+      openapi = sdk.getOpenapiClient<paths>()
     })
 
     afterEach(() => server.resetHandlers())
