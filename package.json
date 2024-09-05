@@ -54,5 +54,8 @@
   },
   "peerDependencies": {
     "openapi-fetch": "^0.11.1"
+  },
+  "dependencies": {
+    "ky": "^1.7.2"
   }
 }
