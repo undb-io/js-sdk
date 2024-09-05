@@ -29,6 +29,7 @@
     "lint:fix": "biome check --apply src",
     "format": "biome format src --write",
     "release": "changeset publish",
+    "changelog": "changeset",
     "prepublishOnly": "bun run build"
   },
   "keywords": [
